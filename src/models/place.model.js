@@ -4,9 +4,21 @@ const placeSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    minLength: 5,
+    minLength: 3,
     maxLength: 50
   },
+  periode: {
+    type: String,
+    minLength: 5,
+    maxLength: 50,
+    trim: true
+  },
+  proprio:{
+      type: String,
+      minLength: 3,
+      maxLength: 15,
+      trim: true
+    },
   types: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "TypePlace",
