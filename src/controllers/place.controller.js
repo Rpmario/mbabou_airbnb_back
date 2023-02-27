@@ -21,6 +21,14 @@ exports.getPlaces = (req, res) => {
     .catch(err => res.status(400).send(err))
 }
 
+
+exports.getsingleplace = (req, res) => {
+  let id = req.params.id
+  Place.find({_id: id}).populate('owner').populate('types').then(
+    (place) => res.send(place))
+    .catch(err => res.status(400).send(err))
+}
+
 exports.updatePlace = (req, res) => {
   Place.findByIdAndUpdate(req.params.id, req.body, { new: true })
   .then(place => res.send({ message: `Place with id ${place._id} and title ${place.title} successfully updated` }))
