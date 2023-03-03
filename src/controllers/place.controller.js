@@ -5,10 +5,6 @@ exports.createPlace = (req, res) => {
   Place.create(req.body).then(
     (place) => {
       console.log(place._id);
-      // $set
-      // const user = User.findById(req.userToken.id);
-      // user.places.push(place._id);
-      // user.save();
       res.send(place)
     }
   )
