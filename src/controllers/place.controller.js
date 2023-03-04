@@ -2,6 +2,7 @@ const Place = require('../models/place.model');
 
 exports.createPlace = (req, res) => {
 
+ console.log(req.body)
   Place.create(req.body).then(
     (place) => {
       console.log(place._id);
