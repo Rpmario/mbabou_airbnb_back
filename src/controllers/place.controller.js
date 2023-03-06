@@ -1,4 +1,5 @@
 const Place = require('../models/place.model');
+const User = require('../models/user.model');
 
 exports.createPlace = (req, res) => {
 
@@ -42,6 +43,15 @@ exports.getMyPlaces = (req, res) => {
   User.findById(req.userToken.id).populate('places').then(
     (user) => {
       res.send(user.places);
+    }
+  )
+}
+
+exports.getMyPlaces = (req, res) => {
+  console.log(req.params.id)
+ Place.find({owner:req.params.id}).then(
+    (user) => {
+      res.send(user);
     }
   )
 }
